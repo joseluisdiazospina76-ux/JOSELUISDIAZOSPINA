@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Shopper PRO</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+    <h1> Shooper PRO</h1>
+    <button id="modoOscuro"></button>
+</header>
+
+<main>
+
+<section>
+    <h2>Productos</h2>
+
+    <!-- BUSCADOR -->
+    <input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="filtrar()">
+
+    <!-- FILTRO -->
+    <select id="filtro" onchange="filtrar()">
+        <option value="todos">Todos</option>
+        <option value="bajo">Menor a $100</option>
+        <option value="alto">Mayor a $100</option>
+    </select>
+
+    <div id="productos"></div>
+</section>
+
+<section>
+    <h2>Carrito</h2>
+    <ul id="carrito"></ul>
+    <h3>Total: $<span id="total">0</span></h3>
+
+    <h3>Método de pago</h3>
+    <select id="metodoPago" onchange="mostrarPago()">
+        <option value="">Seleccionar</option>
+        <option value="efectivo">Efectivo</option>
+        <option value="tarjeta">Tarjeta</option>
+    </select>
+
+    <div id="tarjeta" style="display:none;">
+        <input type="text" id="numero" placeholder="Número de tarjeta">
+        <input type="text" id="nombreT" placeholder="Nombre en tarjeta">
+        <input type="text" id="fecha" placeholder="MM/AA">
+        <input type="text" id="cvv" placeholder="CVV">
+    </div>
+
+    <button onclick="comprar()">Finalizar Compra</button>
+    <p id="mensaje"></p>
+</section>
+
+<!-- FACTURA -->
+<section id="factura" style="display:none;">
+    <h2> Factura</h2>
+    <div id="detalleFactura"></div>
+</section>
+
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>
